@@ -20,7 +20,7 @@ class ToolSerializer(serializers.ModelSerializer):
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = ('id', 'name', 'top_tools', 'tools', 'logo')
+        fields = ('id', 'name', 'top_tools', 'tools', 'logo', 'description')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
