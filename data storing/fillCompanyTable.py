@@ -3,7 +3,6 @@
 
 import mysql.connector
 import json
-from scraping import get_data
 
 
 
