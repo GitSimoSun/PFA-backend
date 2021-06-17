@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Tool, ParentCategory, User, Company
+from .models import Category, Tool, ParentCategory, Company
 
 
 class ParentCategorySerializer(serializers.ModelSerializer):
@@ -21,8 +21,3 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = ('id', 'name', 'top_tools', 'tools', 'logo', 'description')
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'name', 'email', 'password', 'matched_companies', 'tools_using')

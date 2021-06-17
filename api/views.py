@@ -5,10 +5,10 @@ from django.http.response import HttpResponse
 from django.core import serializers
 from rest_framework.views import APIView
 from django.db.models import Q
-from api.models import Category, Tool, ParentCategory, User, Company
+from api.models import Category, Tool, ParentCategory, Company
 # from django.http import HttpResponse
 from rest_framework import generics
-from .serializers import CategorySerializer, ToolSerializer, ParentCategorySerializer, CompanySerializer, UserSerializer
+from .serializers import CategorySerializer, ToolSerializer, ParentCategorySerializer, CompanySerializer
 
 # Create your views here.
 
@@ -111,7 +111,3 @@ class getCompaniesByTools(APIView):
             companies = Company.objects.filter(reduce(operator.or_, (Q(tools__icontains=tool) for tool in tools)))[index: index + 18]
             companies = serializers.serialize('json', companies)
         return HttpResponse(companies, status=200)
-
-class UserView(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
